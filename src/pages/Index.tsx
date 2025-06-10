@@ -2,61 +2,61 @@
 import { useState } from 'react';
 
 const photos = [
-  { id: 1, src: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=400&h=300&fit=crop', title: 'Woman with Laptop', description: 'Remote work setup' },
-  { id: 2, src: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop', title: 'Gray Laptop', description: 'Modern technology' },
-  { id: 3, src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop', title: 'Circuit Board', description: 'Electronic components' },
-  { id: 4, src: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop', title: 'Java Programming', description: 'Code on monitor' },
-  { id: 5, src: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=300&fit=crop', title: 'MacBook Pro', description: 'Apple workspace' },
-  { id: 6, src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop', title: 'White Shirt Laptop', description: 'Professional setting' },
-  { id: 7, src: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop', title: 'White Robot', description: 'AI technology' },
-  { id: 8, src: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop', title: 'Matrix Code', description: 'Digital matrix' },
-  { id: 9, src: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&h=300&fit=crop', title: 'Laptop Surface', description: 'Minimal workspace' },
-  { id: 10, src: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=300&fit=crop', title: 'Colorful Code', description: 'Web development' },
-  { id: 11, src: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&h=300&fit=crop', title: 'Video Screens', description: 'Digital display' },
-  { id: 12, src: 'https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=400&h=300&fit=crop', title: 'Stylus Pen', description: 'Digital design' },
-  { id: 13, src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=300&fit=crop', title: 'Laptop Computers', description: 'Team workspace' },
-  { id: 14, src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop', title: 'Glass Table Laptop', description: 'Modern office' },
-  { id: 15, src: 'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=400&h=300&fit=crop', title: 'Blue Light Bulb', description: 'Innovation concept' },
-  { id: 16, src: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop', title: 'MacBook Code', description: 'Programming session' },
-  { id: 17, src: 'https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=400&h=300&fit=crop', title: 'Apple Watch', description: 'Smart technology' },
-  { id: 18, src: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=300&fit=crop', title: 'Office Chair', description: 'Workspace comfort' },
-  { id: 19, src: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=400&h=300&fit=crop', title: 'Silver iMac', description: 'Desktop setup' },
-  { id: 20, src: 'https://images.unsplash.com/photo-1487887235947-a955ef187fcc?w=400&h=300&fit=crop', title: 'DJI Drone', description: 'Aerial technology' },
-  { id: 21, src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=400&h=300&fit=crop', title: 'Two Deer', description: 'Wildlife nature' },
-  { id: 22, src: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=400&h=300&fit=crop', title: 'Concrete Bridge', description: 'Waterfall landscape' },
-  { id: 23, src: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=400&h=300&fit=crop', title: 'Orange Flowers', description: 'Beautiful blooms' },
-  { id: 24, src: 'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=400&h=300&fit=crop', title: 'Mountain River', description: 'Natural scenery' },
-  { id: 25, src: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=400&h=300&fit=crop', title: 'Pine Trees', description: 'Forest photography' },
-  { id: 26, src: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=400&h=300&fit=crop', title: 'Trees Daytime', description: 'Low angle view' },
-  { id: 27, src: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=400&h=300&fit=crop', title: 'Sunlight Tree', description: 'Light through leaves' },
-  { id: 28, src: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop', title: 'Mountain Rays', description: 'Sunbeam landscape' },
-  { id: 29, src: 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=400&h=300&fit=crop', title: 'Starry Night', description: 'Night sky stars' },
-  { id: 30, src: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=300&fit=crop', title: 'Foggy Summit', description: 'Mountain peak' },
-  { id: 31, src: 'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=400&h=300&fit=crop', title: 'Ocean Wave', description: 'Beach shoreline' },
-  { id: 32, src: 'https://images.unsplash.com/photo-1458668383970-8ddd3927deed?w=400&h=300&fit=crop', title: 'Mountain Alps', description: 'Alpine landscape' },
-  { id: 33, src: 'https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=400&h=300&fit=crop', title: 'Rock Formation', description: 'River rocks' },
-  { id: 34, src: 'https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151?w=400&h=300&fit=crop', title: 'Desert Sand', description: 'Sand dunes' },
-  { id: 35, src: 'https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=400&h=300&fit=crop', title: 'Rocky Mountain', description: 'Blue sky landmark' },
-  { id: 36, src: 'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=400&h=300&fit=crop', title: 'Forest Sunbeam', description: 'Forest light' },
-  { id: 37, src: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?w=400&h=300&fit=crop', title: 'Yellow Lights', description: 'Trees with lights' },
-  { id: 38, src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=300&fit=crop', title: 'Water Trees', description: 'Surrounded by nature' },
-  { id: 39, src: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&h=300&fit=crop', title: 'Green Mountains', description: 'Aerial view' },
-  { id: 40, src: 'https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?w=400&h=300&fit=crop', title: 'Rocky Mountain', description: 'Grass and stone' },
-  { id: 41, src: 'https://images.unsplash.com/photo-1527576539890-dfa815648363?w=400&h=300&fit=crop', title: 'Gray Building', description: 'Low angle architecture' },
-  { id: 42, src: 'https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?w=400&h=300&fit=crop', title: 'Modern Building', description: 'Contemporary design' },
-  { id: 43, src: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=300&fit=crop', title: 'White Concrete', description: 'Minimal architecture' },
-  { id: 44, src: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=300&fit=crop', title: 'Concrete Daytime', description: 'Urban structure' },
-  { id: 45, src: 'https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=400&h=300&fit=crop', title: 'Glass Building', description: 'Bottom view' },
-  { id: 46, src: 'https://images.unsplash.com/photo-1431576901776-e539bd916ba2?w=400&h=300&fit=crop', title: 'Worms Eye View', description: 'Looking up' },
-  { id: 47, src: 'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=400&h=300&fit=crop', title: 'Building Architecture', description: 'Geometric design' },
-  { id: 48, src: 'https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=400&h=300&fit=crop', title: 'White Structure', description: 'Clean lines' },
-  { id: 49, src: 'https://images.unsplash.com/photo-1460574283810-2aab119d8511?w=400&h=300&fit=crop', title: 'Urban Building', description: 'City architecture' },
-  { id: 50, src: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?w=400&h=300&fit=crop', title: 'Wavy Structure', description: 'Brown minimalist' },
-  { id: 51, src: 'https://images.unsplash.com/photo-1439337153520-7082a56a81f4?w=400&h=300&fit=crop', title: 'Glass Roof', description: 'Clear ceiling' },
-  { id: 52, src: 'https://images.unsplash.com/photo-1497604401993-f2e922e5cb0a?w=400&h=300&fit=crop', title: 'Glass Building', description: 'Worms eye perspective' },
-  { id: 53, src: 'https://images.unsplash.com/photo-1473177104440-ffee2f376098?w=400&h=300&fit=crop', title: 'Cathedral Interior', description: 'Empty sacred space' },
-  { id: 54, src: 'https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?w=400&h=300&fit=crop', title: 'Black Red Building', description: 'Bold contrast' },
-  { id: 55, src: 'https://images.unsplash.com/photo-1551038247-3d9af20df552?w=400&h=300&fit=crop', title: 'Blue White Building', description: 'Sky architecture' }
+  { id: 1, src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop', title: 'Spirited Away Bath House', description: 'Magical bath house scene' },
+  { id: 2, src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop', title: 'Howl\'s Moving Castle', description: 'Floating castle in clouds' },
+  { id: 3, src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=400&h=300&fit=crop', title: 'Forest Spirits', description: 'Deer couple in mystical forest' },
+  { id: 4, src: 'https://images.unsplash.com/photo-1439886183900-e79ec0057170?w=400&h=300&fit=crop', title: 'Princess Mononoke', description: 'Forest deer companions' },
+  { id: 5, src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop', title: 'My Neighbor Totoro', description: 'Totoro and friends' },
+  { id: 6, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Castle in the Sky', description: 'Floating island landscape' },
+  { id: 7, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Kiki\'s Delivery Service', description: 'Witch flying over forest' },
+  { id: 8, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'The Wind Rises', description: 'Airplane in sky' },
+  { id: 9, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Nausicaä Valley', description: 'Wind valley landscape' },
+  { id: 10, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Porco Rosso', description: 'Seaplane over ocean' },
+  { id: 11, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Tales from Earthsea', description: 'Dragon flight scene' },
+  { id: 12, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'The Cat Returns', description: 'Cat kingdom palace' },
+  { id: 13, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Grave of Fireflies', description: 'Siblings under stars' },
+  { id: 14, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Only Yesterday', description: 'Countryside memories' },
+  { id: 15, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Whisper of the Heart', description: 'Antique shop wonder' },
+  { id: 16, src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=400&h=300&fit=crop', title: 'Lovers in Forest', description: 'Romantic couple scene' },
+  { id: 17, src: 'https://images.unsplash.com/photo-1439886183900-e79ec0057170?w=400&h=300&fit=crop', title: 'Twin Spirits', description: 'Paired forest guardians' },
+  { id: 18, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Arrietty\'s World', description: 'Miniature garden home' },
+  { id: 19, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'From Up on Poppy Hill', description: 'Harbor town view' },
+  { id: 20, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'The Wind Rises', description: 'Paper airplane dreams' },
+  { id: 21, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'When Marnie Was There', description: 'Marsh house mystery' },
+  { id: 22, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'The Red Turtle', description: 'Island paradise' },
+  { id: 23, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Your Name', description: 'Comet over town' },
+  { id: 24, src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=400&h=300&fit=crop', title: 'Romance in Nature', description: 'Couple among wildlife' },
+  { id: 25, src: 'https://images.unsplash.com/photo-1439886183900-e79ec0057170?w=400&h=300&fit=crop', title: 'Forest Companions', description: 'Deer pair in woods' },
+  { id: 26, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Totoro Tree', description: 'Giant camphor tree' },
+  { id: 27, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Cat Bus Journey', description: 'Magical forest ride' },
+  { id: 28, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Calcifer\'s Fire', description: 'Magical flame spirit' },
+  { id: 29, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Sophie\'s Garden', description: 'Enchanted flower field' },
+  { id: 30, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Markl\'s Magic', description: 'Young wizard practice' },
+  { id: 31, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Turnip Head', description: 'Scarecrow prince' },
+  { id: 32, src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=400&h=300&fit=crop', title: 'Nature\'s Love', description: 'Wildlife romance scene' },
+  { id: 33, src: 'https://images.unsplash.com/photo-1439886183900-e79ec0057170?w=400&h=300&fit=crop', title: 'Spirit Guardians', description: 'Protective forest spirits' },
+  { id: 34, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Chihiro\'s Journey', description: 'Girl in spirit world' },
+  { id: 35, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Haku Dragon', description: 'River spirit transformation' },
+  { id: 36, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'No Face', description: 'Lonely spirit seeking' },
+  { id: 37, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Radish Spirit', description: 'Gentle bath house worker' },
+  { id: 38, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Boiler Room', description: 'Kamaji\'s workplace' },
+  { id: 39, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Train to Swamp', description: 'Mysterious water journey' },
+  { id: 40, src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=400&h=300&fit=crop', title: 'Eternal Bond', description: 'Lovers united in nature' },
+  { id: 41, src: 'https://images.unsplash.com/photo-1439886183900-e79ec0057170?w=400&h=300&fit=crop', title: 'Forest Romance', description: 'Deer couple in love' },
+  { id: 42, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'San and Ashitaka', description: 'Warrior princess meeting' },
+  { id: 43, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Forest God', description: 'Ancient nature deity' },
+  { id: 44, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Kodama Spirits', description: 'Tree spirit chorus' },
+  { id: 45, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Iron Town', description: 'Industrial settlement' },
+  { id: 46, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Wolf Pack', description: 'Moro and cubs' },
+  { id: 47, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Boar Gods', description: 'Ancient forest rulers' },
+  { id: 48, src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=400&h=300&fit=crop', title: 'Mystical Partnership', description: 'Spiritual couple bond' },
+  { id: 49, src: 'https://images.unsplash.com/photo-1439886183900-e79ec0057170?w=400&h=300&fit=crop', title: 'Twin Souls', description: 'Matching forest spirits' },
+  { id: 50, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Sheeta and Pazu', description: 'Young adventurers' },
+  { id: 51, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Laputa Castle', description: 'Sky fortress ruins' },
+  { id: 52, src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: 'Robot Guardian', description: 'Ancient protector' },
+  { id: 53, src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: 'Flying Machine', description: 'Vintage aircraft' },
+  { id: 54, src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=400&h=300&fit=crop', title: 'Love in Wilderness', description: 'Romantic forest encounter' },
+  { id: 55, src: 'https://images.unsplash.com/photo-1439886183900-e79ec0057170?w=400&h=300&fit=crop', title: 'Gentle Companions', description: 'Peaceful deer duo' }
 ];
 
 const Index = () => {
@@ -68,10 +68,10 @@ const Index = () => {
       <header className="bg-card shadow-sm border-b border-border sticky top-0 z-10 backdrop-blur-sm bg-background/95">
         <div className="container mx-auto px-4 py-6">
           <h1 className="text-4xl font-bold text-center text-foreground">
-            Modern Photo Gallery
+            Studio Ghibli Art Gallery
           </h1>
           <p className="text-center text-muted-foreground mt-2 text-lg">
-            Discover beautiful moments captured in time
+            Magical moments and romantic scenes from beloved animated films
           </p>
         </div>
       </header>
@@ -135,7 +135,7 @@ const Index = () => {
         </div>
       )}
 
-      <style jsx>{`
+      <style>{`
         .photo-gallery {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
