@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 const photos = [
+  { id: 1, src: '/lovable-uploads/fc71cdee-3041-49b5-8bc8-f9a06c23af0d.png', title: 'Rashmii', description: 'Beautiful young couple in traditional attire' },
   { id: 1, src: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=300&fit=crop', title: 'Chihiro - Spirited Away', description: 'Young girl beginning her journey' },
   { id: 2, src: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=300&fit=crop', title: 'Sophie - Howl\'s Moving Castle', description: 'Young woman with magical transformation' },
   { id: 3, src: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=300&fit=crop', title: 'Kiki - Kiki\'s Delivery Service', description: 'Young witch in training' },
